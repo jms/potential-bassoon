@@ -1,1 +1,1 @@
-# potential-bassoon
+# potential-bassoon [![Build Status](https://travis-ci.org/jms/potential-bassoon.svg?branch=master)](https://travis-ci.org/jms/potential-bassoon)
