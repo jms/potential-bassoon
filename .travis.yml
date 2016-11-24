@@ -2,5 +2,14 @@ language: python
 python:
   - "3.5"
 
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+
+env:
+  - DATABASE_URL=postgres://postgres@localhost/travis_ci_test
+
+services:
+  - postgresql
+
 install: "pip install -r requirements.txt"
 script: python manage.py test
