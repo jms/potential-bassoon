@@ -1,2 +1,2 @@
-web: gunicorn tvprice.wsgi --log-file -
-worker: python manage.py worker
+web: gunicorn potential_bassoon.wsgi --log-file -
+
