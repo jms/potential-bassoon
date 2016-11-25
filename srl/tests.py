@@ -1,7 +1,9 @@
 from django.test import TestCase
 
 from srl.services.parse import numtosxg, sxgtonum
-
+from srl.management.commands.create_fake_users import create_fake_users
+from srl.views import get_random_user
+from django.contrib.auth.models import User
 
 class TestBaseConversion(TestCase):
     def test_check0(self):
@@ -51,3 +53,9 @@ class TestRoundtripCheck(TestCase):
             result = sxgtonum(sxg)
             assert integer == result
 
+
+class TestRandomUser(TestCase):
+    def test_get_random_user(self):
+        create_fake_users(10)
+        u = get_random_user()
+        assert isinstance(u, User)
