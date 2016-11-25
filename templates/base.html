@@ -1,0 +1,72 @@
+{% load staticfiles %}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        {% block title %}Your page title{% endblock %}
+    </title>
+    {% block stylesheets %}
+        <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet"
+              href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+        <style type="text/css">
+            .icon-block {
+                padding: 0 15px;
+            }
+            .icon-block .material-icons {
+                font-size: inherit;
+            }
+            body {
+                display: flex;
+                min-height: 100vh;
+                flex-direction: column;
+            }
+            main {
+                flex: 1 0 auto;
+            }
+        </style>
+    {% endblock %}
+</head>
+
+<body>
+<nav class="blue-grey darken-3" role="navigation">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="#" class="brand-logo right">URL Shortening Service</a>
+        <ul class="hide-on-med-and-down">
+            <li><a href="/">Home</a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="side-nav">
+            <li><a href="/">Home</a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse">
+            <i class="material-icons">menu</i>
+        </a>
+    </div>
+</nav>
+<main>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</main>
+<footer class="page-footer blue-grey darken-3">
+    <div class="footer-copyright">
+        <div class="container">
+            Powered by <a class="white-text text-lighten-3" href="https://www.djangoproject.com">Django</a>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+<script>
+    (function ($) {
+        $(function () {
+            $('.button-collapse').sideNav();
+        }); // end of document ready
+    })(jQuery); // end of jQuery name space
+</script>
+</body>
+</html>

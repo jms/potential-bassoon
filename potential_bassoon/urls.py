@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from srl import views as srl
+from srl.services.parse import alphabet
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', srl.index),
+    url(r'^(\![{}]*)$'.format(alphabet), srl.details, name='details'),
+    url(r'^([{}]*)$'.format(alphabet), srl.resolve, name='code')
 ]
