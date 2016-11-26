@@ -9,11 +9,11 @@
                         <span class="card-title activator grey-text text-darken-4">
                             Your Short URL<i class="material-icons right">more_vert</i>
                         </span>
-                        <h3 class="center">
+                        <h4 class="center">
                             <a class="" href="/{{ data.code }}">
                                 https://{{ host }}/{{ data.code }}
                             </a>
-                        </h3>
+                        </h4>
                         <br/><br/>
                         <h6 class="center">
                             <a class="" href="{{ data.url }}">
@@ -27,11 +27,11 @@
                          </span>
                         <ul>
                             <li>{{ data.submitter.first_name|capfirst }} {{ data.submitter.last_name|capfirst }}</li>
+                            <li>( {{ data.submitter.username}} )</li>
                             <li>{{ data.submitter.email }}</li>
                             <li>{{ data.submitter.date_joined }}</li>
                         </ul>
                     </div>
-
                 </div>
             </div>
         </div>

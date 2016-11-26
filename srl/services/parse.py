@@ -5,7 +5,6 @@ alphabet = '0123456789ABCDEFGHJKLMNPQRSTUVWXYZ_abcdefghijkmnopqrstuvwxyz'
 
 def encode(url_id):
     return numtosxgf(url_id, settings.SHORT_URL_MAX_LEN)
-    # return numtosxg(url_id)
 
 
 def decode(code):
