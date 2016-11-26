@@ -45,7 +45,14 @@ def details(request, detail):
     query_set = ShortURL.objects.filter(code=code)
     if query_set:
         srl_record = query_set[0]
-        return render(request, 'srl/details.html', {'data': srl_record, 'host': request.get_host().lower()})
+        return render(
+            request,
+            'srl/details.html',
+            {
+                'data': srl_record,
+                'host': request.get_host()
+            }
+        )
     else:
         return HttpResponseNotFound('URL Not Found')
 
