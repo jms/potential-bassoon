@@ -35,15 +35,17 @@ def create_fake_users(count, verbosity=1):
                 # 2014-04-16 16:18:56
                 date_joined = datetime.strptime(date_joined, '%Y-%m-%d %H:%M:%S')
                 date_joined = UTC.localize(date_joined)
-
+                # todo: use bulk insert
                 user_created, created = User.objects.get_or_create(
                     email=email,
                     first_name=first_name,
                     last_name=last_name,
                     username=username,
-                    password=password,
                     date_joined=date_joined
                 )
+                if created:
+                    user_created.set_password(password)
+
                 if verbosity > 1:
                     print('user: {}, created:{}'.format(user_created, created))
 
@@ -63,11 +65,11 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
-        count = int(options.get('user_count'))
+        count = options.get('user_count')
         if count <= 0:
             raise CommandError('Please use only positive numbers greater than 0')
 
-        verbosity = int(options.get('verbosity', 1))
+        verbosity = options.get('verbosity', 1)
         result, msg = create_fake_users(count, verbosity)
         if result:
             raise CommandError(msg)
