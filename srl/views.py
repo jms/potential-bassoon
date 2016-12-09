@@ -1,4 +1,4 @@
-from random import randrange
+from r andom import randrange
 from django.shortcuts import render, redirect
 from django.http import HttpResponseNotFound, HttpResponseRedirect
 from django.contrib.auth.models import User
